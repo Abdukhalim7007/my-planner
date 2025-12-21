@@ -2,56 +2,33 @@
 
 A modern productivity planner built as a Telegram Mini Web App using Next.js App Router, TypeScript, and SCSS Modules.
 
-## Overview
-
-My Planner is a mobile-first productivity application designed for Telegram's Mini App platform. It features a clean, modern UI with activity tracking, plan management, scheduling, and statistics.
-
 ## Tech Stack
 
-- **Framework**: Next.js 16.1.0 (App Router)
+- **Framework**: Next.js 16 App Router
 - **Language**: TypeScript
 - **Styling**: SCSS Modules with design tokens and mixins
 - **Architecture**: SPA-like (client-driven UI, no SSR data fetching)
-- **State Management**: React hooks (useState, useRouter)
-- **Routing**: Next.js client-side navigation
 
 ## Requirements
 
 - **Node.js**: >= 20.9.0 (recommended: use [nvm](https://github.com/nvm-sh/nvm))
-- **Package Manager**: npm (or yarn/pnpm)
-
-### Recommended: Using nvm
-
-```bash
-# Install and use Node.js 20
-nvm install 20
-nvm use 20
-```
+- **Package Manager**: npm
 
 ## Setup
 
-1. **Clone the repository**:
-
+1. **Clone and install**:
    ```bash
    git clone <repository-url>
    cd my-planner
-   ```
-
-2. **Install dependencies**:
-
-   ```bash
    npm install
    ```
 
-3. **Start development server**:
-
+2. **Start development server**:
    ```bash
    npm run dev
    ```
 
-4. **Open in browser**:
-   - Local: [http://localhost:3000](http://localhost:3000)
-   - The page auto-updates as you edit files
+3. **Open in browser**: [http://localhost:3000](http://localhost:3000)
 
 ## Scripts
 
@@ -64,26 +41,23 @@ nvm use 20
 
 ### Recommended: Production Preview
 
-For stable mobile testing, use production mode:
+For stable mobile testing:
 
-1. **Build and start on LAN**:
+1. **Build and start**:
    ```bash
    npm run build
-   npm run start -- -H 0.0.0.0 -p 3000
+   npm run start
    ```
 
-2. **Find your LAN IP**:
+2. **Find LAN IP**:
    ```bash
    # macOS
    ipconfig getifaddr en0
-   # Linux
-   hostname -I | awk '{print $1}'
+   # Linux: hostname -I | awk '{print $1}'
    # Windows: ipconfig (look for IPv4 Address)
    ```
 
 3. **Open on phone**: `http://<LAN_IP>:3000`
-
-**Note**: Production mode ensures all assets load correctly on mobile devices.
 
 ### Development Mode (LAN)
 
@@ -94,7 +68,7 @@ npm run dev -- --hostname 0.0.0.0
 # Then open http://<LAN_IP>:3000 on phone
 ```
 
-**Note**: Dev mode may have asset loading issues on some networks. Production preview is recommended for phone testing.
+**Note**: Dev mode may have asset/cache issues on some networks. Production preview is recommended for phone testing.
 
 ## Troubleshooting
 
@@ -141,4 +115,3 @@ my-planner/
 │   └── _mixins.scss       # SCSS mixins
 └── package.json
 ```
-

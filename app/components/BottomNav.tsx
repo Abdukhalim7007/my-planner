@@ -259,7 +259,9 @@ export default function BottomNav() {
                   className={`${styles.navLink} ${active ? styles.navLinkActive : ''}`}
                   aria-label={item.label}
                 >
-                  <IconComponent className={styles.navIcon} isActive={active} />
+                  <span className={styles.navIconWrap}>
+                    <IconComponent className={styles.navIcon} isActive={active} />
+                  </span>
                   <span className={styles.navLabel}>{item.label}</span>
                 </Link>
               );

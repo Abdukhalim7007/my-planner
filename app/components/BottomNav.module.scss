@@ -68,12 +68,20 @@
   text-decoration: none;
   transition: color 0.2s;
   color: t.$textTertiary; // Inactive color
-  gap: 4px;
+  gap: 6px;
   max-width: 60px; // Limit max width for better spacing
 }
 
 .navLinkActive {
   color: t.$purple; // Active color
+}
+
+.navIconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
 }
 
 .navIcon {
@@ -93,12 +101,13 @@
   font-size: 12px;
   text-align: center;
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1;
   color: inherit; // Inherit from navLink (textTertiary or purple)
 }
 
 .navLinkActive .navLabel {
   font-weight: 600;
+  color: t.$purple;
 }
 
 .modalBackdrop {
