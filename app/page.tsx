@@ -1,3 +1,5 @@
+'use client';
+
 import MobileShell from './components/MobileShell';
 import PremiumCard from './components/ui/PremiumCard';
 import ActivityItem from './components/ui/ActivityItem';
@@ -11,7 +13,9 @@ export default function Home() {
       <div className={styles.container}>
         {/* Greeting section */}
         <section className={styles.greeting}>
-          <h1 className={styles.greetingTitle}>Good Morning, Eric 👋</h1>
+          <h1 className={styles.greetingTitle}>
+            Good Morning, Eric <span className={styles.wave} aria-hidden>👋</span>
+          </h1>
           <p className={styles.greetingDate}>Today, 17 Oct 2022</p>
         </section>
 

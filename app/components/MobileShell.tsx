@@ -1,3 +1,5 @@
+'use client';
+
 import BottomNav from './BottomNav';
 import styles from './MobileShell.module.scss';
 
