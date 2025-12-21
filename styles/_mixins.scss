@@ -1,0 +1,22 @@
+@import './tokens';
+
+// Card mixin
+@mixin card {
+  background: $bgCard;
+  border-radius: $radiusCard;
+  box-shadow: $shadowCard;
+}
+
+// Primary button mixin
+@mixin buttonPrimary {
+  background: $purple;
+  border-radius: $radiusButton;
+  color: white;
+}
+
+// Safe area padding mixin
+@mixin safeAreaPadding($top: 24px, $bottom: 96px) {
+  padding-top: calc(#{$top} + env(safe-area-inset-top));
+  padding-bottom: calc(#{$bottom} + env(safe-area-inset-bottom));
+}
+
