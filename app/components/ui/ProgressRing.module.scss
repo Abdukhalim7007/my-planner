@@ -1,0 +1,41 @@
+@use '../../styles/tokens' as t;
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.svg {
+  position: relative;
+}
+
+.bgRing {
+  stroke: t.$strokeRing;
+}
+
+.progressRing {
+  stroke: t.$purple;
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+.centerText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  font-weight: 600;
+  color: t.$textPrimary;
+  text-align: center;
+}
+
+.label {
+  margin-top: 8px;
+  font-size: 12px;
+  color: t.$textSecondary;
+  text-align: center;
+}
+

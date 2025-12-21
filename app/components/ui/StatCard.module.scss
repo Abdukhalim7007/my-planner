@@ -1,0 +1,43 @@
+@use '../../styles/tokens' as t;
+@use '../../styles/mixins' as m;
+
+.card {
+  @include m.card;
+  padding: 16px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.textSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.title {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: t.$textSecondary;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.value {
+  font-size: 16px;
+  font-weight: 600;
+  color: t.$textPrimary;
+}
+
+.ringSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
