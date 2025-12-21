@@ -5,13 +5,17 @@ import styles from './MobileShell.module.scss';
 
 interface MobileShellProps {
   title: string;
+  leftAction?: React.ReactNode;
   rightAction?: React.ReactNode;
+  showHamburger?: boolean;
   children: React.ReactNode;
 }
 
 export default function MobileShell({
   title,
+  leftAction,
   rightAction,
+  showHamburger = true,
   children,
 }: MobileShellProps) {
   return (
@@ -19,12 +23,18 @@ export default function MobileShell({
       <div className={styles.wrapper}>
         <header className={styles.header}>
           <div className={styles.headerContent}>
-            <button
-              className={styles.menuButton}
-              aria-label="Menu"
-            >
-              ☰
-            </button>
+            {leftAction ? (
+              <div className={styles.leftAction}>{leftAction}</div>
+            ) : showHamburger ? (
+              <button
+                className={styles.menuButton}
+                aria-label="Menu"
+              >
+                ☰
+              </button>
+            ) : (
+              <div className={styles.leftAction}></div>
+            )}
             <h1 className={styles.title}>{title}</h1>
             <div className={styles.rightAction}>
               {rightAction}

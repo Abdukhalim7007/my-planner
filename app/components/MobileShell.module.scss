@@ -39,6 +39,13 @@
   justify-content: center;
 }
 
+.leftAction {
+  width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
 .title {
   font-size: 16px;
   font-weight: 600;

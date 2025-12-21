@@ -1,0 +1,73 @@
+@use '../../../styles/tokens' as t;
+
+.container {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 4px 0;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.chip {
+  width: 50px;
+  height: 77px;
+  border-radius: t.$radiusChip;
+  background: t.$bgGray;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+  padding: 0;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.chipActive {
+  background: t.$purple;
+  color: white;
+
+  .day,
+  .date {
+    color: white;
+  }
+}
+
+.day {
+  font-size: 12px;
+  color: t.$textSecondary;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.chipActive .day {
+  color: white;
+}
+
+.date {
+  font-size: 16px;
+  color: t.$textPrimary;
+  font-weight: 600;
+}
+
+.chipActive .date {
+  color: white;
+}
+

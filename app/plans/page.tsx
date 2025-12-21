@@ -1,22 +1,35 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import MobileShell from '../components/MobileShell';
 import ProgressRing from '../components/ui/ProgressRing';
 import ActivityItem from '../components/ui/ActivityItem';
 import { mockUser } from '../mock/user';
-import { mockPlans, getCategoryStats, getOngoingPlans } from '../mock/plans';
+import { mockPlans, getCategoryStats, getOngoingPlans, getPlansByCategory } from '../mock/plans';
 import styles from './page.module.scss';
 
 export default function PlansPage() {
+  const router = useRouter();
   const categoryStats = getCategoryStats();
   const ongoingPlans = getOngoingPlans().slice(0, 2); // Get first 2 ongoing plans
 
+  // Get first plan id for "VIEW PLAN" button
+  const firstPlanId = mockPlans[0]?.id || '1';
+
+  // Get first plan id for each category
+  const getFirstPlanIdByCategory = (category: string): string => {
+    const categoryPlans = getPlansByCategory(category);
+    return categoryPlans[0]?.id || firstPlanId;
+  };
+
   const handleViewPlan = () => {
-    console.log('View Plan clicked');
+    router.push(`/plans/${firstPlanId}`);
   };
 
   const handleGoToPlan = (category: string) => {
-    console.log(`Go to ${category} plan`);
+    const planId = getFirstPlanIdByCategory(category);
+    router.push(`/plans/${planId}`);
   };
 
   const handleSeeAll = (section: string) => {
@@ -64,6 +77,7 @@ export default function PlansPage() {
                 Your plan is almost complete today
               </p>
               <button
+                type="button"
                 className={styles.progressCardButton}
                 onClick={handleViewPlan}
               >
@@ -95,6 +109,7 @@ export default function PlansPage() {
                 </p>
               </div>
               <button
+                type="button"
                 className={styles.categoryButton}
                 onClick={() => handleGoToPlan('Work')}
               >
@@ -111,6 +126,7 @@ export default function PlansPage() {
                 </p>
               </div>
               <button
+                type="button"
                 className={styles.categoryButton}
                 onClick={() => handleGoToPlan('Personal')}
               >
@@ -133,7 +149,11 @@ export default function PlansPage() {
           </div>
           <div className={styles.ongoingPlansList}>
             {ongoingPlans.map((plan) => (
-              <div key={plan.id} className={styles.ongoingPlanCard}>
+              <Link
+                key={plan.id}
+                href={`/plans/${plan.id}`}
+                className={styles.ongoingPlanCard}
+              >
                 <div className={styles.ongoingPlanHeader}>
                   <h3 className={styles.ongoingPlanTitle}>{plan.title}</h3>
                   <span className={styles.ongoingPlanTime}>
@@ -150,7 +170,7 @@ export default function PlansPage() {
                     completed={false}
                   />
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </section>
