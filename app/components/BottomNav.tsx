@@ -246,7 +246,7 @@ export default function BottomNav() {
       </button>
 
       {/* Bottom Navigation */}
-      <nav className={styles.nav}>
+      <nav className={styles.nav} aria-label="Bottom Navigation">
         <div className={styles.navContainer}>
           <div className={styles.navContent}>
             {navItems.map((item) => {
@@ -260,6 +260,7 @@ export default function BottomNav() {
                   aria-label={item.label}
                 >
                   <IconComponent className={styles.navIcon} isActive={active} />
+                  <span className={styles.navLabel}>{item.label}</span>
                 </Link>
               );
             })}

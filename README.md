@@ -60,141 +60,65 @@ nvm use 20
 - `npm run start` - Start production server
 - `npm run lint` - Run ESLint
 
-## Mobile Preview (Recommended)
+## Mobile Preview
 
-For the best mobile preview experience, use **production mode**:
+### Recommended: Production Preview
 
-### Production Preview Steps
+For stable mobile testing, use production mode:
 
-1. **Switch to Node.js 20** (if using nvm):
-
-   ```bash
-   nvm use 20
-   ```
-
-2. **Build the application**:
-
+1. **Build and start on LAN**:
    ```bash
    npm run build
-   ```
-
-3. **Start production server on LAN**:
-
-   ```bash
    npm run start -- -H 0.0.0.0 -p 3000
    ```
 
-4. **Find your LAN IP address**:
-
+2. **Find your LAN IP**:
    ```bash
-   # macOS (most common)
+   # macOS
    ipconfig getifaddr en0
-
    # Linux
    hostname -I | awk '{print $1}'
-
-   # Windows
-   ipconfig
-   # Look for "IPv4 Address" under your active network adapter
+   # Windows: ipconfig (look for IPv4 Address)
    ```
 
-5. **Open on your phone**:
-   - Open browser on your phone
-   - Navigate to: `http://<YOUR_LAN_IP>:3000`
-   - Example: `http://192.168.1.100:3000`
-   - **Important**: Both devices must be on the same Wi-Fi network
+3. **Open on phone**: `http://<LAN_IP>:3000`
 
-**Why production mode?** Development mode (`npm run dev`) may have issues with asset loading (`/_next/static/`) on mobile devices. Production preview ensures all assets load correctly.
+**Note**: Production mode ensures all assets load correctly on mobile devices.
+
+### Development Mode (LAN)
+
+For development with HMR on mobile:
+
+```bash
+npm run dev -- --hostname 0.0.0.0
+# Then open http://<LAN_IP>:3000 on phone
+```
+
+**Note**: Dev mode may have asset loading issues on some networks. Production preview is recommended for phone testing.
 
 ## Troubleshooting
 
-### Blank / White Screen on Mobile
+### Blank Screen on Mobile
 
-If you see a blank screen when accessing from your phone:
+- Check `/_next/` endpoint: `http://<LAN_IP>:3000/_next/` (should respond)
+- Use production mode instead of dev mode
+- Check firewall settings (macOS: System Settings → Network → Firewall)
+- Ensure both devices on same Wi-Fi (not guest network)
+- Clear browser cache or try incognito mode
 
-1. **Check `/_next/` availability**:
+## Telegram Mini App
 
-   - Open `http://<YOUR_LAN_IP>:3000/_next/` in your phone's browser
-   - Should return 404 (normal) or show asset files
-   - If it times out or connection refused, there's a network/firewall issue
+Telegram WebView requires HTTPS. For local testing:
 
-2. **Check terminal requests**:
-
-   - Look for requests to `/_next/static/` in the terminal
-   - If you see 404s, assets aren't loading correctly
-   - Use production mode (`npm run build && npm run start`) instead of dev mode
-
-3. **Firewall / Network Issues**:
-
-   - **macOS**: System Settings → Network → Firewall → Allow incoming connections for Node.js
-   - **Guest Wi-Fi / AP Isolation**: Some guest networks block device-to-device communication
-   - Try connecting both devices to the same private Wi-Fi network (not guest)
-
-4. **Python HTTP Server Sanity Test**:
-
-   ```bash
-   # In project root
-   python3 -m http.server 8000
-   # Access from phone: http://<LAN_IP>:8000
-   # If this works but Next.js doesn't, it's a Next.js/asset loading issue
-   ```
-
-5. **Browser Cache**:
-   - Clear browser cache on your phone
-   - Try private/incognito mode
-   - Hard refresh: Chrome (Android) → Menu → Settings → Site Settings → Clear & Reset
-
-### Common Issues
-
-- **Port already in use**: Change port with `-p 3001` or kill the process using port 3000
-- **Assets not loading**: Use production preview mode (`npm run build && npm run start`)
-- **Connection refused**: Check firewall and ensure both devices are on same network
-
-## Telegram Mini App Notes
-
-### HTTPS Requirement
-
-Telegram's WebView often requires HTTPS for security. For local development/testing:
-
-1. **Use a tunnel service** (recommended for Telegram testing):
-
-   - **ngrok**: `ngrok http 3000` → use the HTTPS URL
-   - **cloudflared**: `cloudflared tunnel --url http://localhost:3000` → use the HTTPS URL
-   - **localtunnel**: `npx localtunnel --port 3000` → use the HTTPS URL
-
-2. **Production deployment**:
-   - Deploy to Vercel, Netlify, or similar (automatic HTTPS)
-   - Configure Telegram Bot with the production HTTPS URL
-
-### Testing in Telegram
-
-1. Set up tunnel (ngrok/cloudflared) pointing to your local server
-2. Configure Telegram Bot with the tunnel HTTPS URL
-3. Open Mini App from Telegram bot
-4. The app should load with full Telegram WebApp API access
-
-## Environment Variables
-
-This project uses environment variables for configuration. See `.env.example` for available variables.
-
-**Note**: Currently, the project uses mock data and doesn't require environment variables for basic functionality. Future backend integration will require API keys and configuration.
+- **Tunnel services**: `ngrok http 3000` or `cloudflared tunnel --url http://localhost:3000`
+- **Production**: Deploy to Vercel/Netlify (automatic HTTPS)
 
 ## Branch Workflow
 
-- `main` / `master` - Production-ready code
-- `develop` - Development branch (default for feature work)
+- `main` - Production-ready code
+- `develop` - Development branch
 
-**Recommended workflow**:
-
-```bash
-git checkout develop
-git pull origin develop
-git checkout -b feature/your-feature-name
-# ... make changes ...
-git commit -m "feat: your feature"
-git push origin feature/your-feature-name
-# Create PR to develop
-```
+Workflow: `develop` → `feature/*` → PR to `develop`
 
 ## Project Structure
 
@@ -218,12 +142,3 @@ my-planner/
 └── package.json
 ```
 
-## Learn More
-
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Telegram Mini Apps](https://core.telegram.org/bots/webapps)
-- [SCSS Documentation](https://sass-lang.com/documentation)
-
-## License
-
-Private project.
