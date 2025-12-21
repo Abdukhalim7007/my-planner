@@ -1,5 +1,5 @@
-@use '../../styles/tokens' as t;
-@use '../../styles/mixins' as m;
+@use "../../styles/tokens" as t;
+@use "../../styles/mixins" as m;
 
 .container {
   display: flex;
@@ -260,4 +260,3 @@
   flex-direction: column;
   gap: 8px;
 }
-
