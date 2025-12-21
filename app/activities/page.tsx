@@ -77,15 +77,6 @@ export default function ActivitiesPage() {
                         )}
                       </div>
                     </div>
-                    {event.items.length > 0 && (
-                      <div className={styles.eventItems}>
-                        {event.items.map((item, itemIndex) => (
-                          <div key={itemIndex} className={styles.eventItem}>
-                            {item}
-                          </div>
-                        ))}
-                      </div>
-                    )}
                   </div>
                 ) : (
                   <div className={styles.simpleEvent}>

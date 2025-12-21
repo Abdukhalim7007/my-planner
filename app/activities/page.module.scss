@@ -70,7 +70,7 @@
 .timelineList {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px; // Reduced gap for better visual density
 }
 
 .timelineItem {
@@ -100,7 +100,6 @@
   padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
 }
 
 .eventHeader {
@@ -112,7 +111,7 @@
 .eventIcon {
   width: 48px;
   height: 48px;
-  border-radius: 14px;
+  border-radius: 50%; // Circular icon
   background: t.$bgIcon;
   display: flex;
   align-items: center;
@@ -140,39 +139,20 @@
 
 .eventTitle {
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500; // Changed from 600 to 500 to match design
   color: t.$textPrimary;
   margin: 0;
+  line-height: 1.2;
 }
 
 .eventRange {
   font-size: 12px;
   color: t.$textSecondary;
   margin: 0;
+  line-height: 1.2;
 }
 
-.eventItems {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin-left: 60px; // Align with event content (icon width 48px + gap 12px)
-}
-
-.eventItem {
-  font-size: 12px;
-  color: t.$textTertiary;
-  padding-left: 12px;
-  position: relative;
-  line-height: 1.4;
-
-  &::before {
-    content: '•';
-    position: absolute;
-    left: 0;
-    color: t.$textTertiary;
-    font-size: 14px;
-  }
-}
+// Removed eventItems and eventItem styles - cards don't have bullet lists
 
 // Simple event (no card, just icon + text)
 .simpleEvent {

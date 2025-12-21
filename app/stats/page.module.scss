@@ -1,0 +1,117 @@
+@use '../../styles/tokens' as t;
+@use '../../styles/mixins' as m;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background: t.$bgBase;
+  min-height: 100%;
+  padding-bottom: 20px;
+}
+
+// Summary Section
+.summarySection {
+  margin-top: 8px;
+}
+
+.statCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+// Period Section
+.periodSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.periodCard {
+  background: t.$bgCard;
+  border-radius: t.$radiusCard;
+  box-shadow: t.$shadowCard;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.periodLabel {
+  font-size: 12px;
+  color: t.$textSecondary;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.periodValue {
+  font-size: 18px;
+  color: t.$textPrimary;
+  font-weight: 600;
+}
+
+// Weekly Section
+.weeklySection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sectionTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: t.$textPrimary;
+  margin: 0;
+}
+
+.weeklyList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.weeklyItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: t.$bgCard;
+  border-radius: t.$radiusCard;
+  box-shadow: t.$shadowCard;
+  padding: 14px;
+}
+
+.weeklyDay {
+  width: 32px;
+  font-size: 12px;
+  color: t.$textSecondary;
+  font-weight: 500;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.weeklyBar {
+  flex: 1;
+  height: 8px;
+  background: t.$bgGray;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.weeklyBarFill {
+  height: 100%;
+  background: t.$purple;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.weeklyValue {
+  width: 40px;
+  font-size: 12px;
+  color: t.$textPrimary;
+  font-weight: 600;
+  text-align: right;
+  flex-shrink: 0;
+}
+
