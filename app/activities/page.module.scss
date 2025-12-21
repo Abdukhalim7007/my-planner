@@ -93,7 +93,7 @@
 
 .eventCard {
   background: t.$bgCard;
-  border-radius: 24px;
+  border-radius: t.$radiusCard; // Use token (14px) instead of 24px
   box-shadow: t.$shadowCard;
   flex: 1;
   max-width: 334px;

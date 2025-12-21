@@ -62,9 +62,9 @@
 }
 
 .date {
-  font-size: 16px;
+  font-size: 18px; // Figma shows 18px for date number
   color: t.$textPrimary;
-  font-weight: 600;
+  font-weight: 500; // Figma shows 500, not 600
 }
 
 .chipActive .date {
