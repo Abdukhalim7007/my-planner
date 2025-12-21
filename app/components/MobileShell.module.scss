@@ -1,0 +1,61 @@
+@import '../../styles/tokens';
+@import '../../styles/mixins';
+
+.container {
+  min-height: 100vh;
+  background: $bgCard;
+}
+
+.wrapper {
+  max-width: $containerMaxWidth;
+  margin: 0 auto;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: $bgCard;
+  border-bottom: 1px solid $borderLight;
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 $containerPadding;
+  height: 56px;
+}
+
+.menuButton {
+  color: $textPrimary;
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  color: $textPrimary;
+  letter-spacing: 0.0625em;
+}
+
+.rightAction {
+  width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.main {
+  @include safeAreaPadding(24px, 96px);
+  padding-left: $containerPadding;
+  padding-right: $containerPadding;
+}
+
