@@ -1,0 +1,153 @@
+@import "../../styles/tokens";
+@import "../../styles/mixins";
+
+.fab {
+  position: fixed;
+  bottom: 96px; // 24px above nav (64px nav + 16px gap)
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 40;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: $purple;
+  color: white;
+  font-size: 24px;
+  box-shadow: $shadowNav;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:active {
+    transform: translateX(-50%) scale(0.95);
+  }
+}
+
+.nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  background: $bgCard;
+  border-top: 1px solid $borderLight;
+  box-shadow: $shadowNav;
+}
+
+.navContainer {
+  max-width: $containerMaxWidth;
+  margin: 0 auto;
+}
+
+.navContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 64px;
+}
+
+.navLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 100%;
+  text-decoration: none;
+  transition: color 0.2s;
+  color: $textSecondary;
+}
+
+.navLinkActive {
+  color: $textPrimary;
+  font-weight: 600;
+}
+
+.navIcon {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.navLabel {
+  font-size: 12px;
+}
+
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+}
+
+.modalContent {
+  width: 100%;
+  max-width: $containerMaxWidth;
+  background: $bgCard;
+  border-radius: 24px 24px 0 0;
+  padding: 24px;
+  box-shadow: $shadowNav;
+  transform: translateY(0);
+  transition: transform 0.3s;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.modalTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: $textPrimary;
+}
+
+.modalClose {
+  color: $textSecondary;
+  font-size: 24px;
+  line-height: 1;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s;
+
+  &:hover {
+    color: $textPrimary;
+  }
+}
+
+.modalActions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modalButton {
+  width: 100%;
+  padding: 16px;
+  text-align: left;
+  border-radius: 8px;
+  background: $bgGray;
+  border: none;
+  color: $textPrimary;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+
+  &:hover {
+    background: darken($bgGray, 5%);
+  }
+}
