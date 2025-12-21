@@ -1,5 +1,5 @@
-@import "../../styles/tokens";
-@import "../../styles/mixins";
+@use "../../styles/tokens" as t;
+@use "../../styles/mixins" as m;
 
 .fab {
   position: fixed;
@@ -10,10 +10,10 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: $purple;
+  background: t.$purple;
   color: white;
   font-size: 24px;
-  box-shadow: $shadowNav;
+  box-shadow: t.$shadowNav;
   border: none;
   cursor: pointer;
   display: flex;
@@ -36,13 +36,13 @@
   left: 0;
   right: 0;
   z-index: 30;
-  background: $bgCard;
-  border-top: 1px solid $borderLight;
-  box-shadow: $shadowNav;
+  background: t.$bgCard;
+  border-top: 1px solid t.$borderLight;
+  box-shadow: t.$shadowNav;
 }
 
 .navContainer {
-  max-width: $containerMaxWidth;
+  max-width: t.$containerMaxWidth;
   margin: 0 auto;
 }
 
@@ -62,11 +62,11 @@
   height: 100%;
   text-decoration: none;
   transition: color 0.2s;
-  color: $textSecondary;
+  color: t.$textSecondary;
 }
 
 .navLinkActive {
-  color: $textPrimary;
+  color: t.$textPrimary;
   font-weight: 600;
 }
 
@@ -92,11 +92,11 @@
 
 .modalContent {
   width: 100%;
-  max-width: $containerMaxWidth;
-  background: $bgCard;
+  max-width: t.$containerMaxWidth;
+  background: t.$bgCard;
   border-radius: 24px 24px 0 0;
   padding: 24px;
-  box-shadow: $shadowNav;
+  box-shadow: t.$shadowNav;
   transform: translateY(0);
   transition: transform 0.3s;
 }
@@ -111,11 +111,11 @@
 .modalTitle {
   font-size: 20px;
   font-weight: 600;
-  color: $textPrimary;
+  color: t.$textPrimary;
 }
 
 .modalClose {
-  color: $textSecondary;
+  color: t.$textSecondary;
   font-size: 24px;
   line-height: 1;
   background: none;
@@ -125,7 +125,7 @@
   transition: color 0.2s;
 
   &:hover {
-    color: $textPrimary;
+    color: t.$textPrimary;
   }
 }
 
@@ -140,14 +140,14 @@
   padding: 16px;
   text-align: left;
   border-radius: 8px;
-  background: $bgGray;
+  background: t.$bgGray;
   border: none;
-  color: $textPrimary;
+  color: t.$textPrimary;
   font-weight: 500;
   cursor: pointer;
   transition: background 0.2s;
 
   &:hover {
-    background: darken($bgGray, 5%);
+    background: darken(t.$bgGray, 5%);
   }
 }

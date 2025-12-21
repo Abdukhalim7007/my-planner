@@ -1,13 +1,13 @@
-@import '../../styles/tokens';
-@import '../../styles/mixins';
+@use '../../styles/tokens' as t;
+@use '../../styles/mixins' as m;
 
 .container {
   min-height: 100vh;
-  background: $bgCard;
+  background: t.$bgCard;
 }
 
 .wrapper {
-  max-width: $containerMaxWidth;
+  max-width: t.$containerMaxWidth;
   margin: 0 auto;
 }
 
@@ -15,20 +15,20 @@
   position: sticky;
   top: 0;
   z-index: 20;
-  background: $bgCard;
-  border-bottom: 1px solid $borderLight;
+  background: t.$bgCard;
+  border-bottom: 1px solid t.$borderLight;
 }
 
 .headerContent {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 $containerPadding;
+  padding: 0 t.$containerPadding;
   height: 56px;
 }
 
 .menuButton {
-  color: $textPrimary;
+  color: t.$textPrimary;
   font-size: 20px;
   background: none;
   border: none;
@@ -42,7 +42,7 @@
 .title {
   font-size: 16px;
   font-weight: 600;
-  color: $textPrimary;
+  color: t.$textPrimary;
   letter-spacing: 0.0625em;
 }
 
@@ -54,8 +54,7 @@
 }
 
 .main {
-  @include safeAreaPadding(24px, 96px);
-  padding-left: $containerPadding;
-  padding-right: $containerPadding;
+  @include m.safeAreaPadding(24px, 96px);
+  padding-left: t.$containerPadding;
+  padding-right: t.$containerPadding;
 }
-

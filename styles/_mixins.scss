@@ -1,16 +1,16 @@
-@import './tokens';
+@use './tokens' as t;
 
 // Card mixin
 @mixin card {
-  background: $bgCard;
-  border-radius: $radiusCard;
-  box-shadow: $shadowCard;
+  background: t.$bgCard;
+  border-radius: t.$radiusCard;
+  box-shadow: t.$shadowCard;
 }
 
 // Primary button mixin
 @mixin buttonPrimary {
-  background: $purple;
-  border-radius: $radiusButton;
+  background: t.$purple;
+  border-radius: t.$radiusButton;
   color: white;
 }
 
@@ -19,4 +19,3 @@
   padding-top: calc(#{$top} + env(safe-area-inset-top));
   padding-bottom: calc(#{$bottom} + env(safe-area-inset-bottom));
 }
-

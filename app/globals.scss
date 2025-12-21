@@ -1,4 +1,4 @@
-@import '../styles/tokens';
+@use '../styles/tokens' as t;
 
 // Basic reset
 * {
@@ -26,9 +26,8 @@ input {
 // Base styles
 body {
   font-family: system-ui, -apple-system, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, Arial, sans-serif;
-  background: $bgBase;
-  color: $textPrimary;
+  background: t.$bgBase;
+  color: t.$textPrimary;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
