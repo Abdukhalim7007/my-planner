@@ -60,28 +60,34 @@ nvm use 20
 - `npm run start` - Start production server
 - `npm run lint` - Run ESLint
 
-## Mobile / Tablet Preview (Recommended)
+## Mobile Preview (Recommended)
 
 For the best mobile preview experience, use **production mode**:
 
 ### Production Preview Steps
 
-1. **Build the application**:
+1. **Switch to Node.js 20** (if using nvm):
+
+   ```bash
+   nvm use 20
+   ```
+
+2. **Build the application**:
 
    ```bash
    npm run build
    ```
 
-2. **Start production server on LAN**:
+3. **Start production server on LAN**:
 
    ```bash
    npm run start -- -H 0.0.0.0 -p 3000
    ```
 
-3. **Find your LAN IP address**:
+4. **Find your LAN IP address**:
 
    ```bash
-   # macOS
+   # macOS (most common)
    ipconfig getifaddr en0
 
    # Linux
@@ -92,27 +98,13 @@ For the best mobile preview experience, use **production mode**:
    # Look for "IPv4 Address" under your active network adapter
    ```
 
-4. **Open on your phone**:
+5. **Open on your phone**:
    - Open browser on your phone
    - Navigate to: `http://<YOUR_LAN_IP>:3000`
    - Example: `http://192.168.1.100:3000`
    - **Important**: Both devices must be on the same Wi-Fi network
 
-### Development Mode (Alternative)
-
-If you need HMR during development:
-
-```bash
-# Start dev server
-npm run dev
-
-# In another terminal, find your LAN IP
-ipconfig getifaddr en0  # macOS
-
-# Access from phone: http://<LAN_IP>:3000
-```
-
-**Note**: Development mode may have issues with asset loading on mobile devices. Production preview is recommended.
+**Why production mode?** Development mode (`npm run dev`) may have issues with asset loading (`/_next/static/`) on mobile devices. Production preview ensures all assets load correctly.
 
 ## Troubleshooting
 
@@ -120,16 +112,17 @@ ipconfig getifaddr en0  # macOS
 
 If you see a blank screen when accessing from your phone:
 
-1. **Check terminal requests**:
-
-   - Look for requests to `/_next/static/` in the terminal
-   - If you see 404s, assets aren't loading correctly
-
-2. **Test Next.js assets endpoint**:
+1. **Check `/_next/` availability**:
 
    - Open `http://<YOUR_LAN_IP>:3000/_next/` in your phone's browser
    - Should return 404 (normal) or show asset files
-   - If it times out, there's a network/firewall issue
+   - If it times out or connection refused, there's a network/firewall issue
+
+2. **Check terminal requests**:
+
+   - Look for requests to `/_next/static/` in the terminal
+   - If you see 404s, assets aren't loading correctly
+   - Use production mode (`npm run build && npm run start`) instead of dev mode
 
 3. **Firewall / Network Issues**:
 
@@ -137,28 +130,19 @@ If you see a blank screen when accessing from your phone:
    - **Guest Wi-Fi / AP Isolation**: Some guest networks block device-to-device communication
    - Try connecting both devices to the same private Wi-Fi network (not guest)
 
-4. **Browser Cache**:
-
-   - Clear browser cache on your phone
-   - Try private/incognito mode
-   - Hard refresh: Chrome (Android) → Menu → Settings → Site Settings → Clear & Reset
-
-5. **Sanity Test with Python HTTP Server**:
+4. **Python HTTP Server Sanity Test**:
 
    ```bash
-   # In project root, create a test file
-   echo "<h1>Test</h1>" > test.html
-
-   # Start simple HTTP server
+   # In project root
    python3 -m http.server 8000
-
-   # Access from phone: http://<LAN_IP>:8000/test.html
+   # Access from phone: http://<LAN_IP>:8000
    # If this works but Next.js doesn't, it's a Next.js/asset loading issue
    ```
 
-6. **Check Console Errors**:
-   - Use remote debugging (Chrome DevTools → Remote devices)
-   - Look for network errors, CORS issues, or JavaScript errors
+5. **Browser Cache**:
+   - Clear browser cache on your phone
+   - Try private/incognito mode
+   - Hard refresh: Chrome (Android) → Menu → Settings → Site Settings → Clear & Reset
 
 ### Common Issues
 

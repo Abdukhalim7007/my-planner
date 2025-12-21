@@ -47,7 +47,7 @@ export default function Home() {
             <ActivityItem text="Meditation" completed={true} />
             <ActivityItem text="Write in journal" completed={false} />
             <ActivityItem text="Evening walk" completed={false} />
-          </div>
+        </div>
           <button
             type="button"
             className={styles.seeAllButton}
@@ -74,9 +74,9 @@ export default function Home() {
               value={7}
               ring={<ProgressRing percent={25} size={64} strokeWidth={4} />}
             />
-          </div>
+        </div>
         </section>
-      </div>
+    </div>
     </MobileShell>
   );
 }
