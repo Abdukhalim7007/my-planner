@@ -17,6 +17,7 @@ A modern productivity planner built as a Telegram Mini Web App using Next.js App
 ## Setup
 
 1. **Clone and install**:
+
    ```bash
    git clone <repository-url>
    cd my-planner
@@ -24,6 +25,7 @@ A modern productivity planner built as a Telegram Mini Web App using Next.js App
    ```
 
 2. **Start development server**:
+
    ```bash
    npm run dev
    ```
@@ -44,12 +46,14 @@ A modern productivity planner built as a Telegram Mini Web App using Next.js App
 For stable mobile testing:
 
 1. **Build and start**:
+
    ```bash
    npm run build
    npm run start
    ```
 
 2. **Find LAN IP**:
+
    ```bash
    # macOS
    ipconfig getifaddr en0
