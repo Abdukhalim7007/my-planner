@@ -1,0 +1,219 @@
+@use '../../styles/tokens' as t;
+@use '../../styles/mixins' as m;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background: t.$bgBase;
+  min-height: 100%;
+}
+
+// Back button and menu button
+.backButton {
+  color: t.$textPrimary;
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+}
+
+.menuButton {
+  color: t.$textPrimary;
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+}
+
+// Date Chips Section
+.dateChipsSection {
+  margin-top: 8px;
+}
+
+// Timeline Section
+.timelineSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.timelineList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.timelineItem {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.timeLabel {
+  width: 38px;
+  flex-shrink: 0;
+  font-size: 12px;
+  color: t.$textSecondary;
+  font-weight: 500;
+  padding-top: 4px;
+  text-decoration: none;
+  border: none;
+  background: none;
+}
+
+.eventCard {
+  background: t.$bgCard;
+  border-radius: 24px;
+  box-shadow: t.$shadowCard;
+  flex: 1;
+  max-width: 334px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.eventHeader {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.eventIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: t.$bgIcon;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 20px;
+  color: t.$textPrimary;
+  font-weight: 600;
+}
+
+.eventContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.eventSimpleText {
+  flex: 1;
+  font-size: 12px;
+  color: t.$textSecondary;
+  line-height: 1.4;
+  padding-top: 4px;
+}
+
+.eventTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: t.$textPrimary;
+  margin: 0;
+}
+
+.eventRange {
+  font-size: 12px;
+  color: t.$textSecondary;
+  margin: 0;
+}
+
+.eventItems {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-left: 60px; // Align with event content (icon width 48px + gap 12px)
+}
+
+.eventItem {
+  font-size: 12px;
+  color: t.$textTertiary;
+  padding-left: 12px;
+  position: relative;
+  line-height: 1.4;
+
+  &::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: t.$textTertiary;
+    font-size: 14px;
+  }
+}
+
+// Simple event (no card, just icon + text)
+.simpleEvent {
+  flex: 1;
+  max-width: 334px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 4px 0;
+}
+
+.simpleEventIcon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.checkIcon {
+  color: t.$success;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.circleIcon {
+  width: 16px;
+  height: 16px;
+  border: 2px solid t.$borderLight;
+  border-radius: 50%;
+  display: block;
+  background: transparent;
+}
+
+.simpleEventText {
+  flex: 1;
+  font-size: 12px;
+  color: t.$textSecondary;
+  line-height: 1.4;
+}
+

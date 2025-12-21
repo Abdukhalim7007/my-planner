@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import MobileShell from './components/MobileShell';
 import PremiumCard from './components/ui/PremiumCard';
 import ActivityItem from './components/ui/ActivityItem';
@@ -8,6 +9,12 @@ import ProgressRing from './components/ui/ProgressRing';
 import styles from './page.module.scss';
 
 export default function Home() {
+  const router = useRouter();
+
+  const handleSeeAllActivities = () => {
+    router.push('/activities');
+  };
+
   return (
     <MobileShell title="Home">
       <div className={styles.container}>
@@ -41,7 +48,13 @@ export default function Home() {
             <ActivityItem text="Write in journal" completed={false} />
             <ActivityItem text="Evening walk" completed={false} />
           </div>
-          <button className={styles.seeAllButton}>SEE ALL</button>
+          <button
+            type="button"
+            className={styles.seeAllButton}
+            onClick={handleSeeAllActivities}
+          >
+            SEE ALL
+          </button>
         </section>
 
         {/* Evaluation section */}
