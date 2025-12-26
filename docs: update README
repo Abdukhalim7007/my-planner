@@ -119,3 +119,10 @@ my-planner/
 │   └── _mixins.scss       # SCSS mixins
 └── package.json
 ```
+
+## Planner Mini App UI — Next.js + SCSS
+
+### Run locally
+npm install
+npm run dev
+
